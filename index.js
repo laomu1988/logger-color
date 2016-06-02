@@ -2,10 +2,10 @@ var colors = require('colors');
 var dateFormat = require('dateformat');
 var _levels = {
     'log': {level: 0, color: 'white'},
-    'info': {level: 10, color: 'white'},
-    'debug': {level: 20, color: 'white'},
-    'notice': {level: 30, color: 'white'},
-    'warning': {level: 40, color: 'white'},
+    'info': {level: 10, color: 'cyan'},
+    'debug': {level: 20, color: 'blue'},
+    'notice': {level: 30, color: 'magenta'},
+    'warning': {level: 40, color: 'yellow'},
     'error': {level: 100, color: 'red'}
 };
 var _defaultLevel = 0;
@@ -111,7 +111,7 @@ if (process.stdout.clearLine && process.stdout.cursorTo && process.stdout.write)
         var config = CloneLevel(method);
         if (config) {
             config.oneline = true;
-            Logger.apply(config, arguments);
+            Logger.apply(config, args);
         }
     };
     logger.lineEnd = function () {

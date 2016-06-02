@@ -1,19 +1,21 @@
 var logger = require('../index.js');
 
-logger.log('Test Log', 'Log', "Log2");
-logger.info('Test Info');
-logger.debug('Test Debug');
-logger.notice('Test Notice');
-logger.warning('Test Info');
-logger.error('Test Info');
+logger.setLevel('log');
+logger.setColor('notice', 'magenta');
+logger.log(' Test Log');
+logger.info(' Test Info');
+logger.debug(' Test Debug');
+logger.notice(' Test Notice');
+logger.warning(' Test Info');
+logger.error(' Test Info');
 
 var time = "***";
-setInterval(function () {
+var timer = setInterval(function () {
     time += '*';
-    logger.line('error', 'Test Time: ' + time);
+    logger.line('notice', 'now process: ' + time);
+    if (time.length > 100) {
+        logger.lineEnd();
+        logger.log('finish');
+        clearInterval(timer);
+    }
 }, 100);
-
-setInterval(function () {
-    logger.lineEnd();
-    logger.info('test');
-}, 1000);

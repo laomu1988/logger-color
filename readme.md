@@ -31,6 +31,7 @@ log.line("line2"); // 输出单行日志，后面输出的内容将覆盖前面�
 - log.setColor(level,color)
   设置对应级别的输出颜色，例如log.setColor('error','origin')
   只有部分颜色可用：black，red、green、yellow、blue、magenta、cyan、white、gray、grey
+
   <img src="./img/colors.png" style="width:245px;height:100px;"/>
 
 - log.line([level],msg)

@@ -19,9 +19,8 @@ log.warning('warning');
 log.error('error');
 log.line("line1");
 log.line("line2"); // 输出单行日志，后面输出的内容将覆盖前面输出的内容
-
 ```
-<img src="./img/logcolors.png" style="width:245px;height:100px;"/>
+  <img src="./img/logcolors.png" style="width:245px;height:100px;"/>
 
 其中
 - log.setLevel(level)
@@ -36,6 +35,9 @@ log.line("line2"); // 输出单行日志，后面输出的内容将覆盖前面�
 
 - log.line([level],msg)
   输出单行日志，默认level级别为info
+
+- log.clearLine()
+  清理输出的单行日志
 
 - log.lineEnd()
   输出换行符

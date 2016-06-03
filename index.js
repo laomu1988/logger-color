@@ -92,36 +92,34 @@ for (var method in _levels) {
 }
 
 // line 单行输出
-if (process.stdout.clearLine && process.stdout.cursorTo && process.stdout.write) {
-    logger.line = function (method, msg) {
-        var args = [];
-        if (arguments.length > 1) {
-            if (_levels[method]) {
-                args = Array.prototype.slice.call(arguments, 1);
-            } else {
-                method = 'info';
-                args = Array.prototype.slice.call(arguments, 0);
-            }
+logger.line = function (method, msg) {
+    var args = [];
+    if (arguments.length > 1) {
+        if (_levels[method]) {
+            args = Array.prototype.slice.call(arguments, 1);
         } else {
-            args = Array.prototype.slice.call(arguments, 0);
             method = 'info';
+            args = Array.prototype.slice.call(arguments, 0);
         }
-        process.stdout.clearLine();
-        process.stdout.cursorTo(0);
-        var config = CloneLevel(method);
-        if (config) {
-            config.oneline = true;
-            Logger.apply(config, args);
-        }
-    };
-    logger.lineEnd = function () {
-        process.stdout.write('\n');
+    } else {
+        args = Array.prototype.slice.call(arguments, 0);
+        method = 'info';
     }
-} else {
-    logger.lineEnd = logger.line = function () {
-        LoggerError('Your System Do NOT Support line function');
+    process.stdout.clearLine();
+    process.stdout.cursorTo(0);
+    var config = CloneLevel(method);
+    if (config) {
+        config.oneline = true;
+        Logger.apply(config, args);
     }
-}
-
+};
+// 清除使用logger.line输出的内容（注意不要带换行符）
+logger.clearLine = function () {
+    process.stdout.clearLine();
+    process.stdout.cursorTo(0);
+};
+logger.lineEnd = function () {
+    process.stdout.write('\n');
+};
 
 module.exports = logger;

@@ -1,6 +1,6 @@
 {
   "name": "logger-color",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,5 +11,9 @@
   "dependencies": {
     "colors": "^1.1.2",
     "dateformat": "^1.0.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/laomu1988/logger-color.git"
   }
 }

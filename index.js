@@ -118,6 +118,13 @@ logger.clearLine = function () {
     process.stdout.clearLine();
     process.stdout.cursorTo(0);
 };
+logger.clearScreen = function () {
+    var rows = process.stdout.rows;
+    var arr = [];
+    arr.length = rows + 1;
+    console.log(arr.join('\n'));
+};
+
 logger.lineEnd = function () {
     process.stdout.write('\n');
 };

@@ -39,6 +39,9 @@ log.line("line2"); // 输出单行日志，后面输出的内容将覆盖前面�
 - log.clearLine()
   清理输出的单行日志
 
+- log.clearScreen()
+  清理屏幕
+
 - log.lineEnd()
   输出换行符
 
